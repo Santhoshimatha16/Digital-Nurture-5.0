@@ -1,0 +1,25 @@
+CREATE OR REPLACE PROCEDURE UpdateSalary (
+    p_emp_id     IN NUMBER,
+    p_percentage IN NUMBER
+)
+IS
+BEGIN
+    UPDATE Employees
+    SET Salary = Salary + (Salary * p_percentage / 100)
+    WHERE EmployeeID = p_emp_id;
+
+    IF SQL%ROWCOUNT = 0 THEN
+        RAISE_APPLICATION_ERROR(-20002,
+        'Employee ID does not exist');
+    END IF;
+
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE('Salary updated successfully');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
