@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Exercise 7 – Implementing Constructor and Setter Injection
+        BookService uses CONSTRUCTOR injection for the bookTitle field
+        and SETTER injection for the BookRepository dependency.
+    -->
+
+    <!-- BookRepository bean – no dependencies -->
+    <bean id="bookRepository"
+          class="com.library.repository.BookRepository"/>
+
+    <!-- BookService bean:
+         - Constructor injection  → bookTitle (String)
+         - Setter injection       → bookRepository (BookRepository)
+    -->
+    <bean id="bookService"
+          class="com.library.service.BookService">
+
+        <!-- Constructor injection: passes the book title -->
+        <constructor-arg value="Spring in Action"/>
+
+        <!-- Setter injection: wires the BookRepository -->
+        <property name="bookRepository" ref="bookRepository"/>
+
+    </bean>
+
+</beans>
