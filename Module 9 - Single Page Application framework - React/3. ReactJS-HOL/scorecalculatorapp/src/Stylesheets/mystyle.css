@@ -1,0 +1,26 @@
+body{
+    background-color:#f4f4f4;
+    font-family:Arial;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    padding:20px;
+    border:2px solid gray;
+    border-radius:10px;
+    background:white;
+    text-align:center;
+}
+
+h1{
+    color:darkblue;
+}
+
+h2{
+    color:green;
+}
+
+p{
+    font-size:18px;
+}
