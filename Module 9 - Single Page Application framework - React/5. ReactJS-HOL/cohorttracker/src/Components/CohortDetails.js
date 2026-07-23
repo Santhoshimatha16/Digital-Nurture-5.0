@@ -6,7 +6,7 @@ function CohortDetails(props) {
 
         <div className={styles.box}>
 
-            <h2
+            <h3
                 style={{
                     color:
                         props.status === "Ongoing"
@@ -15,7 +15,7 @@ function CohortDetails(props) {
                 }}
             >
                 {props.name}
-            </h2>
+            </h3>
 
             <dl>
 
